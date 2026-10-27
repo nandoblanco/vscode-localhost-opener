@@ -1,0 +1,159 @@
+{
+  "name": "localhost-opener",
+  "displayName": "Localhost Opener",
+  "description": "Map local web server files (XAMPP, MAMP, Apache, Nginx) to localhost URLs and open them in your browser or a live-reloading split pane.",
+  "version": "1.5.0",
+  "publisher": "nandoBlanco",
+  "author": "nandoblanco",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nandoblanco/localhost-opener.git"
+  },
+  "keywords": [
+    "localhost",
+    "apache",
+    "xampp",
+    "mamp",
+    "live-reload",
+    "preview"
+  ],
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "localhost-opener",
+          "title": "Open in Localhost",
+          "icon": "media/globe.svg"
+        }
+      ]
+    },
+    "views": {
+      "localhost-opener": [
+        { "id": "localhostOpener.view", "name": "Localhost" }
+      ]
+    },
+    "commands": [
+      {
+        "command": "localhostOpener.open",
+        "title": "Localhost: Open Active File",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "localhostOpener.copy",
+        "title": "Localhost: Copy URL",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "localhostOpener.openSplit",
+        "title": "Localhost: Open in Split Pane (Live Reload)",
+        "icon": {
+          "light": "media/split-globe-light.svg",
+          "dark": "media/split-globe-dark.svg"
+        }
+      },
+      {
+        "command": "localhostOpener.openFromExplorer",
+        "title": "Open in Localhost (Browser)",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "localhostOpener.openSplitFromExplorer",
+        "title": "Open in Localhost Split Pane (Live Reload)",
+        "icon": {
+          "light": "media/split-globe-light.svg",
+          "dark": "media/split-globe-dark.svg"
+        }
+      },
+      {
+        "command": "localhostOpener.addRoot",
+        "title": "Localhost: Add Document Root (MAMP / XAMPP)",
+        "icon": "$(add)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "localhostOpener.openSplit",
+        "key": "ctrl+alt+l",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "localhostOpener.open",
+        "key": "ctrl+alt+o",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "localhostOpener.openSplit",
+          "group": "navigation",
+          "when": "resourceSet"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "localhostOpener.addRoot",
+          "group": "navigation@1",
+          "when": "view == localhostOpener.view"
+        },
+        {
+          "command": "localhostOpener.open",
+          "group": "navigation@2",
+          "when": "view == localhostOpener.view"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "localhostOpener.copy",
+          "group": "inline",
+          "when": "view == localhostOpener.view && viewItem == url"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "localhostOpener.openFromExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "localhostOpener.openSplitFromExplorer",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "localhostOpener.openFromExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "localhostOpener.openSplitFromExplorer",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Localhost Opener",
+      "properties": {
+        "localhostOpener.roots": {
+          "type": "array",
+          "default": [],
+          "description": "Path-to-URL root mappings. Longest matching path wins."
+        },
+        "localhostOpener.browser": {
+          "type": "string",
+          "enum": ["system", "simple"],
+          "default": "system",
+          "description": "Open in the system browser or VS Code Simple Browser."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package"
+  }
+}
