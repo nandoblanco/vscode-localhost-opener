@@ -2,14 +2,18 @@
   "name": "localhost-opener",
   "displayName": "Localhost Opener",
   "description": "Map local web server files (XAMPP, MAMP, Apache, Nginx) to localhost URLs and open them in your browser or a live-reloading split pane.",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "publisher": "nandoBlanco",
   "author": "nandoblanco",
   "license": "MIT",
   "icon": "media/icon.png",
+  "homepage": "https://github.com/nandoblanco/vscode-localhost-opener#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nandoblanco/localhost-opener.git"
+    "url": "https://github.com/nandoblanco/vscode-localhost-opener.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nandoblanco/vscode-localhost-opener/issues"
   },
   "keywords": [
     "localhost",

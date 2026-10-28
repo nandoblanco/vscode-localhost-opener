@@ -33,13 +33,13 @@ When developing PHP sites, Cascade CMS templates, WordPress or Drupal builds, or
 ### Option 1: Install from VSIX (Recommended)
 
 ```bash
-code --install-extension localhost-opener-1.5.0.vsix
+code --install-extension localhost-opener-1.5.1.vsix
 ```
 
 For VS Code Insiders:
 
 ```bash
-code-insiders --install-extension localhost-opener-1.5.0.vsix
+code-insiders --install-extension localhost-opener-1.5.1.vsix
 ```
 
 ### Option 2: Package from Source
@@ -47,7 +47,7 @@ code-insiders --install-extension localhost-opener-1.5.0.vsix
 ```bash
 cd localhost-opener
 npx @vscode/vsce package
-code --install-extension localhost-opener-1.5.0.vsix
+code --install-extension localhost-opener-1.5.1.vsix
 ```
 
 ## Step-by-Step Setup

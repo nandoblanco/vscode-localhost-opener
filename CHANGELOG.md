@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 (2026-10-27)
+
+- Updated `repository`, `homepage`, and `bugs` URLs to `https://github.com/nandoblanco/vscode-localhost-opener` and standardized `README.md`.
+
 ## 1.5.0
 
 - Clicking the left Activity Bar globe icon launches the active file in the browser (`treeView.onDidChangeVisibility`) and switches the sidebar back to Explorer.
